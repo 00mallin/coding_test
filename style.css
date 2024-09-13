@@ -1,0 +1,30 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 1080px 200px;
+    width: 1080px;
+    height: 200px;
+}
+
+#goldenNumber {
+    position: absolute;
+    left: 610px;
+    top: 40px;
+}
+
+#drawDate {
+    font-family: fantasy;
+    position: absolute;
+    left: 100px;
+    top: 120px;
+}
+
+#videoConfetti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1080px;
+    height: 200px;
+    z-index: 10;
+    pointer-events: none;
+    display: none;
+}
