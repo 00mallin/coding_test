@@ -29,11 +29,11 @@ def setBackground(data):
 
     if jackpotAmount < 25000000 and jackpotAmount > 10000000:
         setBallNumbers(jackpotAmount)
-        print("Below")
+        print("Below 25 mil")
         #DISEScript.SetVariable('bgImage', 'bg1') #https://sun.dise.com/disejackpot/background1.jpg
     elif jackpotAmount >= 25000000 and jackpotAmount < 30000000:
         setBallNumbers(jackpotAmount)
-        print("Above")
+        print("Above 25 mil")
         #DISEScript.SetVariable('bgImage', 'bg2') #https://sun.dise.com/disejackpot/background2.jpg   
         if jackpotAmount >= 27000000:
             print("Play confetti!")
