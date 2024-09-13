@@ -1,5 +1,12 @@
+const goldenNumberImg = document.querySelector("#goldenNumber");
+const drawDateEl = document.querySelector("#drawDate");
+const confettiVideo = document.querySelector('#videoConfetti');
+
 async function main() {
     document.body.style.backgroundImage = `url('https://sun.dise.com/disejackpot/error.jpg')`;
+    confettiVideo.style.display = 'none';
+    goldenNumberImg.src = ''
+    drawDateEl.innerText = ''
 
     try {
         const response = await fetch('https://sun.dise.com/disejackpot/API/');
@@ -39,22 +46,17 @@ function setData(data) {
         setBallNumbers(jackpotAmount);
         document.body.style.backgroundImage = `url('https://sun.dise.com/disejackpot/background2.jpg')`;
         if (jackpotAmount >= 27000000) {
-            const confetti = document.querySelector('#videoConfetti');
-            confetti.style.display = 'block';
+            confettiVideo.style.display = 'block';
         }
-    } else { // Invalid jackpot. Hide goldenNumber and date
-        const img = document.querySelector("#goldenNumber")
-        const drawDate = document.querySelector("#drawDate")
-        img.src = ''
-        drawDate.innerText = ''
+    } else {
+        drawDateEl.innerText = ''
         console.log(`JackpotAmount out of range ${jackpotAmount}`);
     }
 }
 
 function setBallNumbers(number) {
     const roundedNumber = Math.round(number / 1000000);
-    const img = document.querySelector("#goldenNumber")
-    img.src = `https://sun.dise.com/disejackpot/info_gold_ball00${roundedNumber}.png`
+    goldenNumberImg.src = `https://sun.dise.com/disejackpot/info_gold_ball00${roundedNumber}.png`
 }
 
 function verifyDate(date) {
@@ -71,8 +73,7 @@ function verifyDate(date) {
             return false;
         } else {
             const formattedDate = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
-            const drawDate = document.querySelector("#drawDate")
-            drawDate.innerText = formattedDate
+            drawDateEl.innerText = formattedDate
             return true;
         }
     } catch (error) {
@@ -82,4 +83,4 @@ function verifyDate(date) {
 }
 
 main()
-const intervalId = setInterval(main, 10000);
+const intervalId = setInterval(main, 2000);
