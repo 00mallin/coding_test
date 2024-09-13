@@ -83,4 +83,4 @@ function verifyDate(date) {
 }
 
 main()
-const intervalId = setInterval(main, 2000);
+const intervalId = setInterval(main, 10000);
